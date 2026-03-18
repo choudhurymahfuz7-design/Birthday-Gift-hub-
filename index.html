@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <!-- External library for high-performance confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 85%;
+            width: 400px;
+            z-index: 10;
+        }
+        h1 {
+            color: #ff4b5c;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #444;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        button {
+            background-color: #ff4b5c;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(255, 75, 92, 0.3);
+        }
+        button:active {
+            transform: scale(0.95);
+        }grateful you exists 
+        /* Mobile adjustment */
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Happy Birthday Sweetheart ! 🎂</h1>
+    <p>Wishing you a day filled with love, laughter,.You don't even realise how much you mean me. Your smile, your presence, everything about you makes my world better. I'm really grateful you exist. I hope this year gives you all the happiness you deserve.Your smile makes my world brighter every day.
+I’m so lucky to have you as my forever person.
+Thank you for filling my life with love and happiness.
+May your day be full of joy, laughter, and beautiful moments.
+I love you more than words can express. 🎂✨  !</p>
+    <button onclick="celebrate()">Click for Magic! ✨</button>
+</div>
+
+<script>
+    // Initial burst when the page opens
+    window.onload = () => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff4b5c', '#ffca3a', '#8ac926']
+        });
+    };
+
+    // Continuous side-burst celebration on button click
+    function celebrate() {
+        const duration = 3 * 1000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+            confetti({
+                particleCount: 3,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#ff4b5c', '#ffca3a', '#1982c4']
+            });
+            confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#ff4b5c', '#ffca3a', '#1982c4']
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
+</script>
+
+</body>
+</html>
